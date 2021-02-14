@@ -87,7 +87,7 @@ const createSlider = () => {
       changeSlide(slideIndex);
     }, duration);
   }
-
+  toggleSpinner();
 }
 
 // change slider index 
@@ -124,15 +124,31 @@ searchBtn.addEventListener('click', function () {
   sliders.length = 0;
 })
 
+
+document.getElementById("search")
+  .addEventListener("keypress", function (event) {
+    if (event.key === 'Enter'){
+      document.getElementById("search-btn").click();
+    }
+  });
+
+  document.getElementById("duration")
+  .addEventListener("keypress", function (event) {
+    if (event.key === 'Enter'){
+      document.getElementById("create-slider").click();
+    }
+  });
+
+
+
 sliderBtn.addEventListener('click', function () {
   createSlider()
 })
 
 
 const toggleSpinner = () => {
-    const spinner = document.getElementById('loading-spinner');
-    const gallery = document.getElementById('gallery');
-      spinner.classList.toggle('d-none');
-      gallery.classList.toggle('d-none');
-     
+  const spinner = document.getElementById('loading-spinner');
+  const gallery = document.getElementById('gallery');
+  spinner.classList.toggle('d-none');
+  gallery.classList.toggle('d-none');
 }
