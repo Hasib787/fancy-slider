@@ -38,17 +38,17 @@ const getImages = (query) => {
 
 let slideIndex = 0;
 const selectItem = (event, img) => {
-  let element;
-  if (element = event.target) {
-    element.classList.add('added');
-  }
+  let element = event.target;
+  element.classList.add('added');
+ 
   let item = sliders.indexOf(img);
-  if (item = -1) {
+  if (item === -1) {
     sliders.push(img);
-  } else {
-    sliders.classList.remove('remove');
+  } else if(item === 0){
+    sliders.pop(img);
   }
 }
+
 var timer
 const createSlider = () => {
   // check slider image length
@@ -68,7 +68,7 @@ const createSlider = () => {
   sliderContainer.appendChild(prevNext)
   document.querySelector('.main').style.display = 'block';
   // hide image aria
-  imagesArea.style.display = 'none';
+  imagesArea.style.display = 'block';
   const duration = document.getElementById('duration').value || 1000;
   if (duration < 0) {
     alert('Negative value not allowed');
