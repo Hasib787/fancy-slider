@@ -71,6 +71,7 @@ const createSlider = () => {
   imagesArea.style.display = 'block';
   const duration = document.getElementById('duration').value || 1000;
   if (duration < 0) {
+    console.log("Negative not allowed")
     alert('Negative');
   }
   else {
