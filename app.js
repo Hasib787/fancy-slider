@@ -71,7 +71,7 @@ const createSlider = () => {
   imagesArea.style.display = 'block';
   const duration = document.getElementById('duration').value || 1000;
   if (duration < 0) {
-    alert('Negative value not allowed');
+    alert('Negative');
   }
   else {
     sliders.forEach(slide => {
@@ -153,3 +153,5 @@ const toggleSpinner = () => {
   spinner.classList.toggle('d-none');
   gallery.classList.toggle('d-none');
 }
+
+
