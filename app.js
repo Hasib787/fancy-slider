@@ -3,9 +3,9 @@ const gallery = document.querySelector('.gallery');
 const galleryHeader = document.querySelector('.gallery-header');
 const searchBtn = document.getElementById('search-btn');
 const sliderBtn = document.getElementById('create-slider');
-const imageContainer= document.getElementById('image-section');
+const imageContainer = document.getElementById('image-section');
 const sliderContainer = document.getElementById('sliders');
-let errorMessage = "";
+const imageCount = document.getElementById('image-count');
 // selected image 
 let sliders = [];
 
@@ -35,21 +35,20 @@ const getImages = (query) => {
   fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
     .then(response => response.json())
     .then(data => showImages(data.hits))
-    .catch(err=> console(err))
+    .catch(err => console(err))
 }
 
 let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
-  element.classList.add('added');
-
+  element.classList.toggle('added');
   let item = sliders.indexOf(img);
   if (item === -1) {
     sliders.push(img);
-  } else if (item === 0) {
-    sliders.pop(img);
+  } else if (item || item === 0) {
+    sliders.splice(item, 1);
   }
-
+  imageCount.innerText = `${sliders.length} Images Selected`;
 }
 
 var timer
