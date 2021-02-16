@@ -119,11 +119,14 @@ const changeSlide = (index) => {
 }
 
 searchBtn.addEventListener('click', function () {
+  gallery.innerHTML = ''
   document.querySelector('.main').style.display = 'none';
   clearInterval(timer);
   const search = document.getElementById('search');
   getImages(search.value)
   sliders.length = 0;
+  imageCount.innerText = ''
+  search.value = ''
 })
 
 
