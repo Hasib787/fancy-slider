@@ -54,7 +54,12 @@ img {
 .main {
   display: none;
 }
-
+#loading-spinner{
+    margin-top: 7em;
+    height: 45px;
+    width: 45px;
+    color: #27167e;
+}
 
 @media (max-width: 767px) {
   .justify-content-around.align-items-center.mt-3.gallery-header.mb-2 {
