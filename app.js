@@ -71,7 +71,7 @@ const createSlider = () => {
   document.querySelector('.main').style.display = 'block';
   // hide image aria
   imagesArea.style.display = 'none';
-  const duration = document.getElementById('duration').value || 1000;
+  const duration = Math.abs(document.getElementById('duration').value) || 1000;
   if (duration <= 0) {
     alert('value can not be negative');
 
@@ -118,6 +118,7 @@ const changeSlide = (index) => {
 
 }
 
+
 searchBtn.addEventListener('click', function () {
   gallery.innerHTML = ''
   document.querySelector('.main').style.display = 'none';
@@ -125,8 +126,9 @@ searchBtn.addEventListener('click', function () {
   const search = document.getElementById('search');
   getImages(search.value)
   sliders.length = 0;
-  imageCount.innerText = ''
-  search.value = ''
+  imageCount.innerText = '';
+  search.value = '';
+  duration.value ='';
 })
 
 
